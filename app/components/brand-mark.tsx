@@ -1,13 +1,31 @@
 
-import { MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-export function BrandMark() {
+interface BrandMarkProps {
+  onClick?: () => void;
+  className?: string;
+}
+
+export default function BrandMark({
+  onClick,
+  className = "",
+}: BrandMarkProps) {
   return (
-    <span
-      aria-label="AdugboHub"
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-700 to-red-600 shadow-lg shadow-purple-950/30"
+    <Link
+      href="/"
+      onClick={onClick}
+      aria-label="AdugboHub homepage"
+      className={`inline-flex shrink-0 items-center ${className}`}
     >
-      <MapPin size={23} strokeWidth={2.2} className="text-white" />
-    </span>
+      <Image
+        src="/images/logo2.png"
+        alt="AdugboHub — Your Community, Connected"
+        width={600}
+        height={180}
+        priority
+        className="h-12 w-auto object-contain sm:h-14"
+      />
+    </Link>
   );
 }

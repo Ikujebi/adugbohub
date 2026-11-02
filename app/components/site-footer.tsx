@@ -2,64 +2,119 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Facebook,
-  Instagram,
-  Linkedin,
   MapPin,
+  MessageCircle,
+  Smartphone,
+  Mail,
 } from "lucide-react";
-import { BrandMark } from "./brand-mark";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa6";
 
-const footerLinks = [
-  { label: "Home", href: "/" },
-  { label: "Features", href: "/#features" },
-  { label: "How it works", href: "/#how-it-works" },
-  { label: "Communities", href: "/#communities" },
-  { label: "Get started", href: "/#get-started" },
+import BrandMark from "./brand-mark";
+import { siteConfig, socialLinks } from "@/lib/site";
+
+const footerLinks = {
+  platform: [
+    { label: "Home", href: "/" },
+    { label: "Discover", href: "/discover" },
+    { label: "Community", href: "/community" },
+    { label: "Local Businesses", href: "/businesses" },
+    { label: "How It Works", href: "/how-it-works" },
+    { label: "FAQs", href: "/faq" },
+  ],
+
+  company: [
+    { label: "About Us", href: "/about" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+  ],
+};
+
+const socialItems = [
+  {
+    label: "Facebook",
+    href: socialLinks.facebook,
+    icon: FaFacebook,
+  },
+  {
+    label: "Instagram",
+    href: socialLinks.instagram,
+    icon: FaInstagram,
+  },
+  {
+    label: "LinkedIn",
+    href: socialLinks.linkedin,
+    icon: FaLinkedin,
+  },
 ];
 
-export function SiteFooter() {
+export default function SiteFooter() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-white/[0.07] bg-[#08080c]">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <BrandMark />
+    <footer className="bg-[#20152f] text-white">
+      <div className="mx-auto max-w-[1240px] px-5 pb-10 pt-16 md:px-8 md:pt-20">
 
-              <span>
-                <span className="block text-lg font-extrabold tracking-tight text-white">
-                  Adugbo<span className="text-purple-400">Hub</span>
-                </span>
-                <span className="block text-[9px] font-semibold uppercase tracking-[0.19em] text-slate-500">
-                  Your community, connected
-                </span>
-              </span>
-            </Link>
+        {/* TOP FOOTER */}
+        <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
 
-            <p className="mt-6 max-w-md text-sm leading-8 text-slate-400">
-              Bringing residents, community managers and local businesses
-              together through a more connected neighbourhood experience.
+          {/* BRAND */}
+          <div>
+            <BrandMark className="[&_img]:h-12 [&_img]:w-auto sm:[&_img]:h-14" />
+
+            <p className="mt-6 max-w-sm text-sm leading-8 text-white/60">
+              {siteConfig.description}
             </p>
 
-            <div className="mt-6 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-slate-400">
-                <MapPin size={16} />
+            <div className="mt-6 flex items-start gap-3 text-sm leading-7 text-white/60">
+              <MapPin
+                size={17}
+                className="mt-1 shrink-0 text-brand-red"
+              />
+              <span>
+                Connecting neighbourhoods, one community at a time.
               </span>
-              <span className="text-xs text-slate-500">
-                Built for connected neighbourhoods.
-              </span>
+            </div>
+
+            {/* SOCIAL LINKS */}
+            <div className="mt-7 flex items-center gap-3">
+              {socialItems.map((item) => {
+                const Icon = item.icon;
+
+                if (!item.href) return null;
+
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit AdugboHub on ${item.label}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/60 transition hover:border-brand-red hover:bg-brand-red hover:text-white"
+                  >
+                    <Icon size={17} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
+          {/* PLATFORM LINKS */}
           <div>
-            <h3 className="text-sm font-bold text-white">Explore</h3>
+            <h3 className="text-sm font-extrabold tracking-wide">
+              Platform
+            </h3>
 
-            <ul className="mt-5 space-y-4">
-              {footerLinks.map((link) => (
-                <li key={link.label}>
+            <ul className="mt-6 space-y-4">
+              {footerLinks.platform.map((link) => (
+                <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-purple-400"
+                    className="text-sm text-white/60 transition hover:text-brand-red"
                   >
                     {link.label}
                   </Link>
@@ -68,64 +123,113 @@ export function SiteFooter() {
             </ul>
           </div>
 
+          {/* COMPANY LINKS */}
           <div>
-            <h3 className="text-sm font-bold text-white">Get in touch</h3>
+            <h3 className="text-sm font-extrabold tracking-wide">
+              Company
+            </h3>
 
-            <p className="mt-5 text-sm leading-7 text-slate-400">
-              Have a community or business enquiry? We would be glad to hear
-              from you.
+            <ul className="mt-6 space-y-4">
+              {footerLinks.company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/60 transition hover:text-brand-red"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* GET THE APP */}
+          <div>
+            <h3 className="text-sm font-extrabold tracking-wide">
+              Get Started
+            </h3>
+
+            <p className="mt-6 text-sm leading-8 text-white/60">
+              Your neighbourhood, your people, and your community in one
+              connected place.
             </p>
 
-            <a
-              href="mailto:hello@adugbohub.com?subject=AdugboHub%20Enquiry"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-400 transition-colors hover:text-red-400"
+            <Link
+              href="/#get-app"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand-red px-5 py-3 text-sm font-bold text-white shadow-lg shadow-brand-red/20 transition hover:-translate-y-1 hover:bg-brand-red-dark"
             >
-              hello@adugbohub.com
-              <ArrowUpRight size={15} />
-            </a>
+              <Smartphone size={17} />
+              Get the App
+              <ArrowUpRight size={16} />
+            </Link>
 
-            <div className="mt-6 flex items-center gap-3">
+            {siteConfig.contactEmail && (
               <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-slate-400 transition hover:border-purple-500/40 hover:text-white"
+                href={`mailto:${siteConfig.contactEmail}`}
+                className="mt-7 flex items-center gap-3 text-sm text-white/60 transition hover:text-white"
               >
-                <Facebook size={16} />
+                <Mail size={17} className="shrink-0 text-brand-red" />
+                <span className="break-all">
+                  {siteConfig.contactEmail}
+                </span>
               </a>
-
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-slate-400 transition hover:border-purple-500/40 hover:text-white"
-              >
-                <Instagram size={16} />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-slate-400 transition hover:border-purple-500/40 hover:text-white"
-              >
-                <Linkedin size={16} />
-              </a>
-            </div>
+            )}
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/[0.07] pt-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} AdugboHub. All rights reserved.
+        {/* CONTACT STRIP */}
+        <div className="flex flex-col gap-5 border-b border-white/10 py-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h3 className="text-lg font-extrabold">
+              Let's build stronger communities.
+            </h3>
+
+            <p className="mt-2 text-sm text-white/55">
+              Have a question about AdugboHub?
+              We'd love to hear from you.
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="inline-flex w-fit items-center gap-2 text-sm font-bold text-white transition hover:text-brand-red"
+          >
+            Get in touch
+            <MessageCircle size={17} />
+          </Link>
+        </div>
+
+        {/* BOTTOM FOOTER */}
+        <div className="flex flex-col gap-5 pt-8 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+
+          <p>
+            © {currentYear} AdugboHub. All rights reserved.
           </p>
 
-          <p className="text-xs text-slate-600">
-            Connecting people. Empowering communities.
-          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link
+              href="/privacy"
+              className="text-white/55 transition hover:text-brand-red"
+            >
+              Privacy Policy
+            </Link>
+
+            <Link
+              href="/terms"
+              className="text-white/55 transition hover:text-brand-red"
+            >
+              Terms of Service
+            </Link>
+
+            <Link
+              href="/contact"
+              className="text-white/55 transition hover:text-brand-red"
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          <p>Made for connected communities.</p>
         </div>
       </div>
     </footer>
