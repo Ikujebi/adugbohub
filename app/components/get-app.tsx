@@ -1,5 +1,7 @@
 "use client";
-import  { useState } from 'react';
+import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowDown,
   ArrowRight,
@@ -20,6 +22,7 @@ import {
   X,
   Menu,
 } from "lucide-react";
+import logo from "@/public/images/logo2.png";
 
 // Feature dataset with working high-quality image placeholders
 const features = [
@@ -85,7 +88,7 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
           <div className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-[#E53945] to-[#7138B8] font-black text-white shadow-md">
-              A
+              <Image src={logo} alt="AdugboHub Logo" width={40} height={40} />
             </div>
             <span className="text-xl font-black text-white tracking-tight">
               Adugbo<span className="text-[#FF6877]">Hub.</span>
@@ -109,12 +112,12 @@ export default function App() {
               <Bell size={20} />
               {notification && <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-[#E53945]"></span>}
             </button>
-            <a 
-              href="#download" 
+            <Link 
+              href="/early-access" 
               className="rounded-full bg-gradient-to-r from-[#E53945] to-[#7138B8] px-5 py-2.5 text-xs font-bold text-white shadow-lg transition hover:opacity-90"
             >
               Get Early Access
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -134,13 +137,13 @@ export default function App() {
               <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
               <a href="#community" onClick={() => setMobileMenuOpen(false)}>Community</a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-              <a 
-                href="#download" 
+              <Link 
+                href="/early-access" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-2 text-center rounded-full bg-[#E53945] py-2 text-xs font-bold text-white"
               >
                 Get Early Access
-              </a>
+              </Link>
             </nav>
           </div>
         )}
@@ -183,7 +186,7 @@ export default function App() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
-              <div className="flex min-w-[190px] items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3.5 backdrop-blur transition hover:bg-white/15 cursor-pointer">
+              <Link href="/early-access" className="flex min-w-[190px] items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3.5 backdrop-blur transition hover:bg-white/15 cursor-pointer">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#20152F]">
                   <Smartphone size={23} />
                 </div>
@@ -191,11 +194,11 @@ export default function App() {
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/50">
                     Android
                   </p>
-                  <p className="font-bold">Coming soon</p>
+                  <p className="font-bold">Test App Build</p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="flex min-w-[190px] items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3.5 backdrop-blur transition hover:bg-white/15 cursor-pointer">
+              <Link href="/early-access" className="flex min-w-[190px] items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3.5 backdrop-blur transition hover:bg-white/15 cursor-pointer">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#20152F]">
                   <Smartphone size={23} />
                 </div>
@@ -203,9 +206,9 @@ export default function App() {
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/50">
                     iPhone
                   </p>
-                  <p className="font-bold">Coming soon</p>
+                  <p className="font-bold">Test App Build</p>
                 </div>
-              </div>
+              </Link>
             </div>
 
             <div className="mt-7 flex flex-wrap items-center gap-3 text-sm text-white/50">
@@ -485,13 +488,13 @@ export default function App() {
               what your AdugboHub journey will look like.
             </p>
 
-            <a
-              href="#download"
+            <Link
+              href="/early-access"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#7138B8] px-6 py-4 text-sm font-extrabold text-white shadow-lg shadow-purple-200 transition hover:-translate-y-1 hover:bg-[#5E2D9E]"
             >
-              See how AdugboHub works
+              Get early access to test
               <ArrowRight size={17} />
-            </a>
+            </Link>
           </div>
 
           <div className="space-y-4">
@@ -537,29 +540,22 @@ export default function App() {
             </h2>
 
             <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-white/80 sm:text-lg">
-              AdugboHub is getting ready to bring communities closer.
-              The official app store links will appear here when the apps launch.
+              AdugboHub is getting ready to bring communities closer. Register now to participate in our early access testing.
             </p>
 
             <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <div className="inline-flex items-center gap-3 rounded-2xl border border-white/20 bg-white/15 px-5 py-4 text-left backdrop-blur transition hover:bg-white/25 cursor-pointer">
+              <Link
+                href="/early-access"
+                className="inline-flex items-center gap-3 rounded-2xl border border-white/20 bg-white/15 px-6 py-4 text-left backdrop-blur transition hover:bg-white/25 cursor-pointer"
+              >
                 <Smartphone size={25} />
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/70">
-                    Google Play
+                    Join Beta Testing
                   </p>
-                  <p className="font-extrabold">Coming soon</p>
+                  <p className="font-extrabold">Register for Early Access</p>
                 </div>
-              </div>
-              <div className="inline-flex items-center gap-3 rounded-2xl border border-white/20 bg-white/15 px-5 py-4 text-left backdrop-blur transition hover:bg-white/25 cursor-pointer">
-                <Smartphone size={25} />
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-white/70">
-                    App Store
-                  </p>
-                  <p className="font-extrabold">Coming soon</p>
-                </div>
-              </div>
+              </Link>
             </div>
 
             <a
