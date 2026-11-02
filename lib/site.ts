@@ -37,7 +37,6 @@ export const navigation = [
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
   { label: "FAQs", href: "/faq" },
-  { label: "Download App", href: "/download" },
 ];
 
 export const socialLinks = {

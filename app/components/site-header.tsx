@@ -118,7 +118,7 @@ export default function SiteHeader() {
 
             {/* GET THE APP */}
             <Link
-              href="/#get-app"
+              href="/download"
               className="inline-flex shrink-0 items-center gap-2 rounded-full bg-brand-red px-5 py-3 text-sm font-bold text-white shadow-lg shadow-red-100 transition hover:-translate-y-0.5 hover:bg-brand-red-dark"
             >
               Get the App
