@@ -305,6 +305,7 @@ export default function SiteHeader() {
                   { label: "Community", href: "/community" },
                   { label: "Businesses", href: "/businesses" },
                   { label: "FAQs", href: "/faq" },
+                  { label: "Download App", href: "/download" },
                 ].map((item) => (
                   <Link
                     key={item.href}

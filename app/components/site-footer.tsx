@@ -24,6 +24,7 @@ const footerLinks = {
     { label: "Local Businesses", href: "/businesses" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "FAQs", href: "/faq" },
+    { label: "Download App", href: "/download" },
   ],
 
   company: [
