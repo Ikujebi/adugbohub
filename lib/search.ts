@@ -87,6 +87,32 @@ export const searchItems: SearchItem[] = [
       "use AdugboHub",
     ],
   },
+
+  // APP DOWNLOAD PAGE
+  {
+    title: "Download AdugboHub",
+    description:
+      "Discover the AdugboHub mobile app, explore its features and find out about Android and iOS availability.",
+    href: "/download",
+    category: "Mobile App",
+    keywords: [
+      "download",
+      "app",
+      "mobile app",
+      "android",
+      "iphone",
+      "ios",
+      "google play",
+      "play store",
+      "apple",
+      "app store",
+      "smartphone",
+      "install",
+      "get the app",
+      "mobile",
+      "application",
+    ],
+  },
   {
     title: "About AdugboHub",
     description:
@@ -188,10 +214,19 @@ export function searchWebsite(query: string) {
 
       const score = words.reduce((total, word) => {
         if (item.title.toLowerCase().includes(word)) return total + 5;
-        if (item.keywords.some((keyword) => keyword.toLowerCase().includes(word))) {
+
+        if (
+          item.keywords.some((keyword) =>
+            keyword.toLowerCase().includes(word),
+          )
+        ) {
           return total + 3;
         }
-        if (item.description.toLowerCase().includes(word)) return total + 1;
+
+        if (item.description.toLowerCase().includes(word)) {
+          return total + 1;
+        }
+
         if (searchableText.includes(word)) return total + 1;
 
         return total;
