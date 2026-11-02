@@ -75,7 +75,7 @@ export default function AboutSection() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/#get-app"
+                href="/download"
                 className="inline-flex items-center gap-2 rounded-full bg-brand-red px-7 py-4 text-sm font-bold text-white transition hover:bg-brand-red-dark"
               >
                 Get the App
@@ -245,7 +245,7 @@ export default function AboutSection() {
           </p>
 
           <Link
-            href="/#get-app"
+            href="/download"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold text-brand-purple transition hover:bg-brand-lavender"
           >
             Get Started

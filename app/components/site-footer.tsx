@@ -156,7 +156,7 @@ export default function SiteFooter() {
             </p>
 
             <Link
-              href="/#get-app"
+              href="/download"
               className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand-red px-5 py-3 text-sm font-bold text-white shadow-lg shadow-brand-red/20 transition hover:-translate-y-1 hover:bg-brand-red-dark"
             >
               <Smartphone size={17} />

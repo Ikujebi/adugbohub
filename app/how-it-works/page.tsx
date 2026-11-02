@@ -150,7 +150,7 @@ export default function HowItWorksPage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/#get-app"
+                href="/download"
                 className="inline-flex items-center gap-2 rounded-full bg-brand-red px-7 py-4 text-sm font-bold text-white shadow-lg shadow-red-100 transition hover:-translate-y-1 hover:bg-brand-red-dark"
               >
                 Get the App
@@ -512,7 +512,7 @@ export default function HowItWorksPage() {
           </p>
 
           <Link
-            href="/#get-app"
+            href="/download"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-brand-purple transition hover:bg-brand-lavender"
           >
             Get the App

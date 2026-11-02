@@ -192,7 +192,7 @@ export default function SiteHeader() {
             </nav>
 
             <Link
-              href="/#get-app"
+              href="/download"
               onClick={closeMenu}
               className="mt-5 flex items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-4 text-sm font-bold text-white transition hover:bg-brand-red-dark"
             >

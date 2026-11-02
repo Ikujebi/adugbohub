@@ -191,7 +191,7 @@ export default function ContactPage() {
           </p>
 
           <Link
-            href="/#get-app"
+            href="/download"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold text-brand-purple transition hover:bg-brand-lavender"
           >
             Explore AdugboHub

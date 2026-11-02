@@ -6,7 +6,7 @@ import NeighbourhoodActivity from "./components/neighbourhood-activity";
 import MarketplaceSection from "./components/marketplace-section";
 import HowItWorks from "./components/how-it-works";
 import FAQSection from "./components/faq-section";
-import AppDownloadSection from "./components/app-download-section";
+import AppDownloadSection from "./components/get-app";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <NeighbourhoodActivity />
         <MarketplaceSection />
         <HowItWorks />
-        <AppDownloadSection />
+         <AppDownloadSection /> 
         <FAQSection />
       </main>
 

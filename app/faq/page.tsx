@@ -434,7 +434,7 @@ export default function FAQPage() {
             </Link>
 
             <Link
-              href="/#get-app"
+              href="/download"
               className="inline-flex items-center gap-2 rounded-full border border-white/40 px-8 py-4 text-sm font-bold text-white transition hover:bg-white/10"
             >
               <Smartphone size={18} />
