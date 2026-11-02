@@ -168,3 +168,4 @@ export default async function SearchPage({
     </div>
   );
 }
+// just added a search page to the website. It allows users to search for content on the site and displays results or a message if no results are found.
